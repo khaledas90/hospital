@@ -1,38 +1,511 @@
-.App {
-  text-align: center;
+:root {
+  --primary: #0463fa;
+  --light: #eff5ff;
+  --wight: #ffffff;
+  --dark: #1b2c51;
+  --dark_light: #676767;
+}
+h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--dark);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  background-color: var(--light);
+  padding: 10px 17px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header span {
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header .icon {
+  font-size: 12px;
+  color: var(--primary);
+  margin-right: 6px;
+  margin-left: 5px;
+}
+
+.header .iconBrand {
+  border-radius: 50px;
+  font-size: 19px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.header .iconBrand:hover {
+  color: var(--dark);
+}
+.d-flex {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.Navbar {
+  background-color: var(--wight);
+  padding: 0px 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+.Navbar .content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Navbar h1 {
+  color: var(--primary);
+  font-size: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.Navbar h1 span {
+  margin-top: 0px;
+}
+
+.Navbar .LogoImg {
+  width: 45px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.Navbar .nav {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.Navbar .nav ul {
+  display: flex;
+}
+.Navbar .nav ul li {
+  list-style: none;
+  margin-left: 15px;
+  margin-right: 30px;
+  padding: 25px 0;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  outline: none;
+}
+.Navbar .nav ul li a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--primary);
+  position: relative;
+  transition: 0.4s all ease-in-out;
+}
+.linkPage {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--primary);
+  position: relative;
+  transition: 0.4s all ease-in-out;
+  cursor: pointer;
+}
+.Navbar .nav ul li a::after {
+  width: 100%;
+  height: 1.5px;
+  background-color: var(--primary);
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 22px;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+}
+.Navbar .nav ul li a:hover::after {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+.Navbar .nav ul li a::after {
+  opacity: 1;
+  transform: scale(0);
+  transform-origin: center;
+}
+
+.Navbar .nav ul li a:hover::after,
+.Navbar .nav ul li a:focus::after {
+  transform: scale(1);
+}
+.Navbar .linkPage {
+  position: relative;
+}
+.Navbar .drobdown-menu {
+  position: absolute;
+  display: block;
+  align-items: center;
+  background: var(--light);
+  top: 62px;
+  left: -4px;
+  z-index: 99999;
+  opacity: 0;
+  transition: 0.2s 0.2s ease-out;
+}
+.Navbar .linkPage:hover .drobdown-menu {
+  opacity: 1;
+  transform: translate3d(0, 0.2em, 0);
+}
+.Navbar .drobdown-menu .drobdown-items {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1rem;
+  border: 0;
+  padding: 9px;
+}
+.Navbar .drobdown-menu .drobdown-items a {
+  clear: both;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  text-align: start;
+  white-space: nowrap;
+  background-color: transparent;
+}
+.OpenNave {
+  font-size: 26px;
+  margin-top: 2px;
+  margin-right: 15px;
+  padding-bottom: 6px;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: none;
+}
+.OpenNave:hover {
+  color: var(--primary);
+}
+@media screen and (max-width: 768px) {
+  .OpenNave {
+    display: block;
   }
-  to {
-    transform: rotate(360deg);
+
+  .Navbar .nav ul {
+    position: absolute;
+    top: 101px;
+    left: 0px;
+    z-index: 111111;
+    background: var(--light);
+    width: 100%;
+    display: none;
   }
+
+  .Navbar .linkPage .drobdown-menu {
+    position: static !important;
+    opacity: 1;
+    margin-top: 10px;
+    display: none;
+  }
+  .Navbar .linkPage .drobdown-menu li {
+    transform: translate3d(0, 0, 0);
+    background-color: var(--wight);
+  }
+}
+@media screen and (max-width: 513px) {
+  .header .parentHead {
+    display: block;
+    text-align: center;
+  }
+  .Navbar .nav ul {
+    position: absolute;
+    top: 126px;
+  }
+}
+
+/* home */
+
+.home {
+  background-color: var(--primary);
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  height: 100%;
+}
+.home .Left_home h1 {
+  font-size: calc(1.475rem + 2.7vw);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--wight);
+  margin-bottom: 3rem;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.home .numberCount {
+  margin-left: 10px;
+  margin-bottom: 14px;
+}
+.imgslider {
+  height: 90% !important;
+}
+.Title_Slide {
+  font-size: calc(1.625rem + 4.5vw);
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--wight);
+  margin-bottom: 55px;
+}
+.carousel-indicators [data-bs-target] {
+  width: 25px !important;
+  height: 25px !important;
+  border-radius: 50% !important;
+  background-color: var(--wight) !important;
+}
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 45px;
+  height: 45px;
+  padding: 10px;
+  color: var(--wight) !important;
+  background: transparent;
+  border: 1px solid var(--wight) !important;
+  border-radius: 45px;
+  font-size: 19px !important;
+}
+
+/* about  */
+
+.AboutUs {
+  margin: 70px auto;
+}
+.AboutUs .imgAboutOne {
+  width: 520px;
+}
+.AboutUs .imgAboutTwo {
+  position: absolute;
+  left: -26px;
+  bottom: -110px;
+  margin-bottom: 20px;
+}
+.AboutUs .Paragraph {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark_light);
+}
+.AboutUs .content .Check {
+  color: var(--primary);
+  margin-right: 1rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  border: 1px solid var(--primary);
+  padding: 2px;
+  border-radius: 50px;
+}
+
+@media screen and (max-width: 991.2px) {
+  .AboutUs .content {
+    margin-top: 40px;
+  }
+}
+
+/* Services */
+
+.Services {
+  margin-top: 70px;
+}
+.Services .service-item {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  background-color: #e2edff;
+  margin-bottom: 7px;
+  transition: all 0.5s;
+}
+.Services .service-item:hover {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.Services .service-item .IconHead {
+  background-color: var(--wight);
+  padding: 23px;
+  font-size: 31px;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  color: var(--primary);
+}
+.Services .service-item h4 {
+  font-size: 25px;
+  font-weight: 700;
+}
+.Services .service-item .p {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--dark_light);
+}
+
+.Services .service-item .btnMore {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+}
+.Services .service-item .btnMore:hover {
+  transform: scaleZ();
+  overflow: visible;
+  width: auto;
+}
+.service-item .faPlus {
+  margin-right: 20px;
+  font-size: 23px;
+  color: var(--primary);
+  transition: all 0.2s ease-in-out;
+}
+
+/* Features */
+.Feature {
+  margin-top: 70px;
+  background-color: var(--primary);
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+.Feature .content {
+  padding: 15px;
+}
+.Feature .Icon_feature {
+  font-size: 18px;
+  padding: 18px;
+  color: var(--primary);
+  transition: all 0.5s;
+}
+
+/* Doctors */
+
+.Doctors {
+  margin: 70px 0;
+}
+
+.Doctors .IconDoctor {
+  padding: 10px;
+  background-color: var(--wight);
+  color: var(--primary);
+  border-radius: 50px;
+  margin-right: 15px;
+  transition: all 0.5s;
+}
+.Doctors .team-item {
+  margin-bottom: 15px;
+}
+.Doctors .team-item .team-text {
+  position: relative;
+  height: 100px;
+  transition: 0.5s;
+}
+
+.Doctors .team-item:hover .team-text {
+  margin-top: -60px;
+  height: 160px;
+}
+
+.Doctors .team-item .team-text .team-social {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.Doctors .team-item:hover .team-text .team-social {
+  opacity: 1;
+}
+
+.Doctors .team-item .team-text h5 {
+  font-weight: 700;
+}
+
+/* footer */
+
+.Footer {
+  background-color: #1b2c51;
+}
+
+.Footer h5 {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.Footer .icon_details_footer {
+  margin-right: 13px;
+  font-size: 16px;
+}
+.Footer .team-social {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+.Footer .IconFooter {
+  border: 1px var(--light) solid;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.Footer .IconFooter:hover {
+  color: var(--primary);
+  background-color: var(--light);
+}
+.Feature .itemfoot {
+  margin-bottom: 5px;
+  display: block;
+  margin-bottom: 0px !important;
+  padding: 0;
+  text-align: left;
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: normal;
+  text-transform: capitalize;
+  transition: 0.3s;
+}
+.Feature .itemfoot:hover {
+  background-color: #0463fa;
+}
+
+/* Appointment */
+
+.Appointment {
+  margin-top: 50px;
+}
+.Appointment .iconAppointment {
+  background-color: var(--wight);
+  padding: 15px;
+  font-size: 25px;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  color: var(--primary);
+}
+
+/* Contact */
+
+.Contact {
+  margin-top: 70px;
+}
+
+.Contact .iconContact {
+  background-color: var(--wight);
+  padding: 15px;
+  font-size: 25px;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  color: var(--primary);
+}
+.asideContact {
+  background-color: var(--light);
+  padding: 15px;
 }
